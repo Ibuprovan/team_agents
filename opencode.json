@@ -2,9 +2,10 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "build",
   "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+  "instructions": ["AGENTS.md"],
   "agent": {
     "pm": {
-      "description": "产品经理，负责需求分析、用户场景设计、编写 PRD",
+      "description": "产品经理，负责需求分析、用户场景设计、编写完备的 PRD",
       "mode": "subagent",
       "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
       "permission": {
@@ -13,7 +14,7 @@
       }
     },
     "backend-dev": {
-      "description": "后端/核心算法工程师，负责业务逻辑实现、核心算法与函数编写",
+      "description": "后端工程师，负责业务逻辑实现、核心算法与函数编写，严格遵循DBA表结构",
       "mode": "subagent",
       "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
       "permission": {
@@ -22,12 +23,111 @@
       }
     },
     "report": {
-      "description": "报告生成器，负责抽取 PRD 和代码结构，自动生成实验报告",
+      "description": "报告生成器，负责实验报告、项目总结、Markdown与学术格式文档整理",
       "mode": "subagent",
       "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
       "permission": {
         "edit": "allow",
         "bash": "ask"
+      }
+    },
+    "pmo": {
+      "description": "项目管理办公室，负责接收需求、评估复杂度、拆解任务、监控状态机死循环",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "ask"
+      }
+    },
+    "architect": {
+      "description": "系统架构师，负责技术选型、微服务划分、高并发规划、全局接口规范、技术仲裁",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "ask"
+      }
+    },
+    "reviewer": {
+      "description": "代码审查员，负责依据规范检查代码、审查架构合规性、提供重构建议",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "deny",
+        "bash": "ask"
+      }
+    },
+    "memory": {
+      "description": "记忆管理器，负责维护项目长期记忆、动态切片注入上下文",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "ask"
+      }
+    },
+    "frontend-dev": {
+      "description": "前端工程师，负责 Web 前端、页面 UI、状态管理与接口对接",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "devops": {
+      "description": "交付工程师，负责 Dockerfile、CI/CD、部署配置",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "security": {
+      "description": "合规安全官，负责 OWASP 风险评估、权限检查、阻断高危代码",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "deny",
+        "bash": "ask"
+      }
+    },
+    "cyber": {
+      "description": "网安特化智能体，负责静态代码审计、漏洞 PoC 验证、渗透测试分析",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "research": {
+      "description": "前沿调研员，负责 CVE 漏洞调研、论文分析、技术攻关报告",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "ask"
+      }
+    },
+    "dba": {
+      "description": "数据库工程师，负责物理建模、性能与索引优化、安全与扩展规范",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "ask"
+      }
+    },
+    "qa-engineer": {
+      "description": "测试工程师，负责断言矩阵设计、自动化测试编写、质量红线卡点",
+      "mode": "subagent",
+      "model": "xiaomi-token-plan-cn/mimo-v2.5-pro",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
       }
     }
   }
